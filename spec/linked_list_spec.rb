@@ -18,5 +18,11 @@ describe "#head" do
   end
 end
 
+describe "#append" do
+  it 'can add sounds to the list' do
+    list = LinkedList.new
 
+    expect(list.append("doop")).to eq("doop")
+  end
+end
 end #final
