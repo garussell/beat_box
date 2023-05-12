@@ -60,7 +60,6 @@ describe "#multiple nodes" do
     expect(list.head.next_node.next_node).to eq(nil)
     expect(list.count).to eq(2)
     expect(list.to_string).to eq("doop deep")
+    end
   end
-end
-
-end #final
+end 
