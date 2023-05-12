@@ -51,11 +51,13 @@ describe "#multiple nodes" do
     list = LinkedList.new
 
     list.append("doop")
+
     expect(list.to_string).to eq("doop")
     expect(list.head.next_node).to eq(nil)
     
     list.append("deep")
-    expect(list.head.next_node).to eq(list)
+
+    expect(list.head.next_node.next_node).to eq(nil)
     expect(list.count).to eq(2)
     expect(list.to_string).to eq("doop deep")
   end
