@@ -30,9 +30,21 @@ describe "#count" do
 it 'can count number of nodes' do
   list = LinkedList.new
   
-  list.append("plop")
+  list.append("doop")
 
   expect(list.count).to eq(1)
   end
 end
+
+describe "#to_string" do
+it 'can list data points in a string' do
+  list = LinkedList.new
+
+  list.append("doop")
+
+  expect(list.to_string).to eq("doop")
+  end
+end
+
+
 end #final
