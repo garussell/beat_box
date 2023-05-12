@@ -15,7 +15,6 @@ class LinkedList
     end
   end
 
-
   def count
     count = 0
     current_node = @head
@@ -35,4 +34,20 @@ class LinkedList
     end
     concat_data.strip
   end
+
+  def prepend(data)
+    # add data at the beginning of the node
+    # @head is not occupied, at data to head
+    if @head == nil
+      @head = Node.new(data)
+    else
+    # instance varialble to store new instance of node
+      current_node = Node.new(data)
+    # current position
+      current_node.next_node = @head
+    # swap position
+      @head = current_node
+    end
+  end
+
 end 
