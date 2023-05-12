@@ -1,7 +1,6 @@
 require './lib/node'
 
 RSpec.describe Node do
-end
 describe "#node class" do
   it 'exists' do
     node = Node.new("plop")

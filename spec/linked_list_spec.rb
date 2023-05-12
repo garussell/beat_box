@@ -30,6 +30,8 @@ describe "#count" do
 it 'can count number of nodes' do
   list = LinkedList.new
   
+  list.append("plop")
+
   expect(list.count).to eq(1)
   end
 end
