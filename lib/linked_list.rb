@@ -55,9 +55,10 @@ class LinkedList
     if @head == nil
       @head = Node.new(data)
     else
-    # otherwise, we need to split up the string to an array to include the index.  I know .split will split the string and return an array, and .insert(index, obj) will insert given obj at given index
-    # if that works, it will insert the new string at the index and return an array.  Maybe then I can .join them back together
-    # im not sure if I will have to run the .to_string method first, then do the split/insert/join stuff
+      insert_node = Node.new(data)
+    # created new instance of node class
+    #
+      
     end
   end
 end 
