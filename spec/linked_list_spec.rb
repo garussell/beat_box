@@ -55,8 +55,9 @@ describe "#multiple nodes" do
     expect(list.head.next_node).to eq(nil)
     
     list.append("deep")
-    expect(list.to_string).to eq("deep")
     expect(list.head.next_node).to eq(list)
+    expect(list.count).to eq(2)
+    expect(list.to_string).to eq("doop deep")
   end
 end
 
