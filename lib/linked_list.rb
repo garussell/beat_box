@@ -38,13 +38,12 @@ class LinkedList
     current_node = @head
     # now loop through the linked list; starts at 'current_node' and ends at nil
     until current_node == nil
-      concat_data << current_node.data
+      concat_data += " #{current_node.data}" 
     # after current_node data is shoveled into the concat_data variable, move on to next node
       current_node = current_node.next_node
     end
     # now iterate through the loop, which is to call the instance variable
-    concat_data
+    # check-in session revealed I should use string intropolation, put a space in front, and I remembered I could use .strip to clear out extra spaces
+    concat_data.strip
   end
-
- 
 end #class
