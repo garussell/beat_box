@@ -27,24 +27,37 @@ describe "#append" do
 end
 
 describe "#count" do
-it 'can count number of nodes' do
-  list = LinkedList.new
+  it 'can count number of nodes' do
+    list = LinkedList.new
   
-  list.append("doop")
+    list.append("doop")
 
-  expect(list.count).to eq(1)
+    expect(list.count).to eq(1)
   end
 end
 
 describe "#to_string" do
-it 'can list data points in a string' do
-  list = LinkedList.new
+  it 'can list data points in a string' do
+    list = LinkedList.new
 
-  list.append("doop")
+    list.append("doop")
 
-  expect(list.to_string).to eq("doop")
+    expect(list.to_string).to eq("doop")
   end
 end
 
+describe "#multiple nodes" do
+  it 'correctly modulate head variable' do
+    list = LinkedList.new
+
+    list.append("doop")
+    expect(list.to_string).to eq("doop")
+    expect(list.head.next_node).to eq(nil)
+    
+    list.append("deep")
+    expect(list.to_string).to eq("deep")
+    expect(list.head.next_node).to eq(list)
+  end
+end
 
 end #final
