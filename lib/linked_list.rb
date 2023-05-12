@@ -15,13 +15,20 @@ class LinkedList
     end
   end
 
+
   def count
-    if @head == nil
-      count = 0
-    else
-      count = 1
+    #starts at 0 and current node is nil
+    count = 0
+    current_node = @head
+    #will continue until it evaluates to false
+    until current_node == nil
+      count += 1
+      current_node = current_node.next_node
     end
+    #this is called here because it will iterate through each node and count each one until next node is nil, so in the test we appended 2 node so it runs 2 times
+    count
   end
+  
 
   def to_string
       @head.data
