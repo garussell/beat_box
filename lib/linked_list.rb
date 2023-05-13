@@ -36,29 +36,27 @@ class LinkedList
   end
 
   def prepend(data)
-    # add data at the beginning of the node
-    # @head is not occupied, at data to head
     if @head == nil
       @head = Node.new(data)
     else
-    # instance varialble to store new instance of node
       current_node = Node.new(data)
-    # current position - next_node is now the @head
       current_node.next_node = @head
-    # swap position - head is now the current_node which was the most recent object created
       @head = current_node
     end
   end
 
   def insert(index, data)
-    # if the list is empty, add something
-    if @head == nil
-      @head = Node.new(data)
-    else
-      insert_node = Node.new(data)
-    # created new instance of node class
-    #
-      
+    current_node = @head
+    (index - 1).times do |index|
+      current_node = current_node.next_node unless current_node == nil
     end
+    inserted_node = Node.new(data)
+    inserted_node.next_node = current_node.next_node
+    current_node.next_node = inserted_node
+    inserted_node.data
+  ## 
+  # we are starting with local variable current_node
+  # we are looping through the list using .times, so if index param is 1, we are not looping but placing inserted_node into index "0" 
+  # then, we are essentially shuffling nodes around by setting current_node to next_node (unless current_node is nil because thats the end of the list)
   end
-end 
+end #class
