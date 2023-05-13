@@ -87,6 +87,22 @@ describe "#insert" do
 
     expect(list.insert(1, "woo")).to eq("woo")
     expect(list.to_string).to eq ("dop woo plop suu")
-    end
   end
-end 
+end
+
+describe "#find" do
+  it 'can find sounds at specified index and return subsequent sounds' do
+    list = LinkedList.new
+
+    list.append("shi")
+    list.append("shu")
+    list.prepend("deep")
+    list.insert(1, "woo")
+    list.append("blop")
+
+    expect(list.to_string).to eq("deep woo shi shu blop")
+    expect(list.find(2, 1)).to eq("shi")
+    expect(list.find(1, 3)).to eq("woo shi shu")
+  end
+end
+end #final
