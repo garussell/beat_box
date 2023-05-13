@@ -1,8 +1,9 @@
 class LinkedList
-  attr_reader :head
+  attr_reader :head, :count, :to_string
 
   def initialize
     @head = nil
+    @to_string = to_string
   end
 
   def append(data)
@@ -48,7 +49,7 @@ class LinkedList
   def insert(index, data)
     current_node = @head
     (index - 1).times do |index|
-      current_node = current_node.next_node 
+      current_node = current_node.next_node #unless current_node.next_node == nil
     end
     inserted_node = Node.new(data)
     inserted_node.next_node = current_node.next_node
@@ -56,11 +57,15 @@ class LinkedList
     inserted_node.data
   end
 
-  def find(index, how_many)
-    # if there are no items in the list, may I should raise an error
-    # if there is only one item, or the list count is smaller than the index number reqested, it can raise another error say "list is smaller than that", or something along those lines
-    #if the index does exist, and the how_many parameter is more than what remains, than it will just print to the end of the list
-    # i then there is flow-control here, conditional if/else statement with edge case/ raising error if parameters are off
-    # hypothesis:  if there are 5 items and we need to access index[2], maybe i have to run a loop x2 before printing the result --- then print the remaining iterations of the list per specified number of times
+  def find(index, list_length)
+    current_node = @head
+    create_index = to_string.split(" ")
+    create_index[index]
+ 
+  # so i can get it to find the index and return that single item, now I'm trying to figures out how to print the next items per list_length number.  This code brings me to the final expect statement.
+  
+  
+    
   end
+  
 end #class
