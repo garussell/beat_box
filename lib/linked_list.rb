@@ -61,11 +61,17 @@ class LinkedList
     current_node = @head
     create_index = to_string.split(" ")
     create_index[index]
- 
-  # so i can get it to find the index and return that single item, now I'm trying to figures out how to print the next items per list_length number.  This code brings me to the final expect statement.
-  
-  
     
+    counter = 0
+    sound_bites = []
+    
+    until counter == list_length || current_node == nil 
+      sound_bites << @head.data
+      # require 'pry';binding.pry
+      counter += 1
+    end
+    sound_bites
+
   end
   
 end #class
