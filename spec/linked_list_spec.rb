@@ -134,6 +134,6 @@ describe "#pop" do
     expect(list.pop).to eq("blop")
     expect(list.pop).to eq("shu")
     expect(list.to_string).to eq("deep woo shi")
+    end
   end
-end
-end #final
+end 

@@ -19,20 +19,24 @@ class LinkedList
   def count
     count = 0
     current_node = @head
+    
     until current_node == nil
       count += 1
       current_node = current_node.next_node
     end
+    
     count
   end
 
   def to_string
     concat_data = ""
     current_node = @head
+    
     until current_node == nil
       concat_data += " #{current_node.data}" 
       current_node = current_node.next_node
     end
+
     concat_data.strip
   end
 
@@ -48,9 +52,11 @@ class LinkedList
 
   def insert(index, data)
     current_node = @head
+    
     (index - 1).times do |index|
       current_node = current_node.next_node unless current_node.next_node == nil
     end
+
     inserted_node = Node.new(data)
     inserted_node.next_node = current_node.next_node
     current_node.next_node = inserted_node
@@ -81,19 +87,14 @@ class LinkedList
   end
 
   def pop
-  # assign variable to the head of the list for our starting point
     current_node = @head
-  # loop through the list until we get to the second to last node because we will want to change the proceeding node to nil in order to pop it
-      until current_node.next_node.next_node == nil
-  # shuffle through the list until condition is met
-        current_node = current_node.next_node
-      end
-  # loop exits, so we are at the second to last node
-  # pull the data point from current state, here we are looking at the data from the next node, and store in in a variable
+      
+    until current_node.next_node.next_node == nil
+      current_node = current_node.next_node
+    end
+
       popped_data = current_node.next_node.data
-  # set the next node to nil to delete it
       current_node.next_node = nil
-  # return the data we want, which is the data we just removed
       popped_data
   end
-end #class
+end 
