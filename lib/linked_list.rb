@@ -49,7 +49,7 @@ class LinkedList
   def insert(index, data)
     current_node = @head
     (index - 1).times do |index|
-      current_node = current_node.next_node #unless current_node.next_node == nil
+      current_node = current_node.next_node unless current_node.next_node == nil
     end
     inserted_node = Node.new(data)
     inserted_node.next_node = current_node.next_node
@@ -59,8 +59,8 @@ class LinkedList
 
   def find(index, list_length)
     current_node = @head
-    create_index = to_string.split(" ")
-    sound_bites = create_index[index]
+    sounds_arr = to_string.split(" ")
+    sound_bites = sounds_arr[index]
     sound_bites_arr = []
     counter = 0
     
@@ -76,7 +76,24 @@ class LinkedList
   
   def include?(sound_bite)
     current_node = @head
-    create_index_arr = to_string.split(" ")
-    sound_bite = create_index_arr.include?(sound_bite)
+    sounds_arr = to_string.split(" ")
+    sound_bite = sounds_arr.include?(sound_bite)
+  end
+
+  def pop
+  # assign variable to the head of the list for our starting point
+    current_node = @head
+  # loop through the list until we get to the second to last node because we will want to change the proceeding node to nil in order to pop it
+      until current_node.next_node.next_node == nil
+  # shuffle through the list until condition is met
+        current_node = current_node.next_node
+      end
+  # loop exits, so we are at the second to last node
+  # pull the data point from current state, here we are looking at the data from the next node, and store in in a variable
+      popped_data = current_node.next_node.data
+  # set the next node to nil to delete it
+      current_node.next_node = nil
+  # return the data we want, which is the data we just removed
+      popped_data
   end
 end #class
