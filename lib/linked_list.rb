@@ -62,24 +62,21 @@ class LinkedList
     create_index = to_string.split(" ")
     sound_bites = create_index[index]
     sound_bites_arr = []
- 
-    # at this point i have a variable that stores the index arg
-    # i need multiple to print so I'm thinking we'll shovel info into an array until condition is met, then convert array to string .join
-   
     counter = 0
+    
     until counter == list_length || current_node.next_node == nil 
       sound_bites_arr << sound_bites
       current_node = current_node.next_node
       sound_bites = current_node.next_node.data
       counter += 1
     end
+    
     sound_bites_arr.join(" ")
-
-    # the until loop will stop if counter matches list_length or if its at the end of the list
-    # it will shovel sound bites, which are the data at the specified index, 
-    # then we do the node shuffle
-    # then we make sure sound_bites varialbe contains data from next_node and count 1 every time it loops
-    # finally, we join the sound_bites_arr to convert to string
   end
   
+  def include?(sound_bite)
+    current_node = @head
+    create_index_arr = to_string.split(" ")
+    sound_bite = create_index_arr.include?(sound_bite)
+  end
 end #class
