@@ -1,9 +1,8 @@
 class LinkedList
-  attr_reader :head, :count, :to_string
+  attr_reader :head, :count
 
   def initialize
     @head = nil
-    @to_string = to_string
   end
 
   def append(data)
@@ -24,7 +23,6 @@ class LinkedList
       count += 1
       current_node = current_node.next_node
     end
-    
     count
   end
 
@@ -36,7 +34,6 @@ class LinkedList
       concat_data += " #{current_node.data}" 
       current_node = current_node.next_node
     end
-
     concat_data.strip
   end
 
@@ -54,9 +51,8 @@ class LinkedList
     current_node = @head
     
     (index - 1).times do |index|
-      current_node = current_node.next_node unless current_node.next_node == nil
+      current_node = current_node.next_node 
     end
-
     inserted_node = Node.new(data)
     inserted_node.next_node = current_node.next_node
     current_node.next_node = inserted_node
@@ -76,7 +72,6 @@ class LinkedList
       sound_bites = current_node.next_node.data
       counter += 1
     end
-    
     sound_bites_arr.join(" ")
   end
   
@@ -92,7 +87,6 @@ class LinkedList
     until current_node.next_node.next_node == nil
       current_node = current_node.next_node
     end
-
       popped_data = current_node.next_node.data
       current_node.next_node = nil
       popped_data
