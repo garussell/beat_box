@@ -70,10 +70,16 @@ class LinkedList
     until counter == list_length || current_node.next_node == nil 
       sound_bites_arr << sound_bites
       current_node = current_node.next_node
+      sound_bites = current_node.next_node.data
       counter += 1
     end
     sound_bites_arr.join(" ")
 
+    # the until loop will stop if counter matches list_length or if its at the end of the list
+    # it will shovel sound bites, which are the data at the specified index, 
+    # then we do the node shuffle
+    # then we make sure sound_bites varialbe contains data from next_node and count 1 every time it loops
+    # finally, we join the sound_bites_arr to convert to string
   end
   
 end #class
