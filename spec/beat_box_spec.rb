@@ -12,4 +12,12 @@ RSpec.describe BeatBox do
       expect(bb.list).to be_an_instance_of(LinkedList)
     end
   end
+
+  describe "#append" do
+    it 'can add a list of items' do
+      bb = BeatBox.new
+
+      expect(bb.append("deep doo ditt")).to eq("deep doo ditt")
+    end
+  end
 end
