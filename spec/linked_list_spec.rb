@@ -93,6 +93,22 @@ end
 describe "#find" do
   it 'can find sounds at specified index and return subsequent sounds' do
     list = LinkedList.new
+    
+    list.append("shi")
+    list.append("shu")
+    list.prepend("deep")
+    list.insert(1, "woo")
+    list.append("blop")
+    
+    expect(list.to_string).to eq("deep woo shi shu blop")
+    expect(list.find(2, 1)).to eq("shi")
+    expect(list.find(1, 3)).to eq("woo shi shu")
+  end
+end
+
+describe "#includes?" do
+  it 'can confirm if item is included in the list' do
+    list = LinkedList.new
 
     list.append("shi")
     list.append("shu")
@@ -100,9 +116,8 @@ describe "#find" do
     list.insert(1, "woo")
     list.append("blop")
 
-    expect(list.to_string).to eq("deep woo shi shu blop")
-    expect(list.find(2, 1)).to eq("shi")
-    expect(list.find(1, 3)).to eq("woo shi shu")
+    expect(list.include?("deep")).to be true
+    expect(list.include?("dep")).to be false
   end
 end
 end #final
