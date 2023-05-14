@@ -60,17 +60,19 @@ class LinkedList
   def find(index, list_length)
     current_node = @head
     create_index = to_string.split(" ")
-    create_index[index]
-    
+    sound_bites = create_index[index]
+    sound_bites_arr = []
+ 
+    # at this point i have a variable that stores the index arg
+    # i need multiple to print so I'm thinking we'll shovel info into an array until condition is met, then convert array to string .join
+   
     counter = 0
-    sound_bites = []
-    
-    until counter == list_length || current_node == nil 
-      sound_bites << @head.data
-      # require 'pry';binding.pry
+    until counter == list_length || current_node.next_node == nil 
+      sound_bites_arr << sound_bites
+      current_node = current_node.next_node
       counter += 1
     end
-    sound_bites
+    sound_bites_arr.join(" ")
 
   end
   
