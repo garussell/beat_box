@@ -1,5 +1,5 @@
 class LinkedList
-  attr_reader :head, :count
+  attr_reader :head, :counter
 
   def initialize
     @head = nil
@@ -23,7 +23,7 @@ class LinkedList
       count += 1
       current_node = current_node.next_node
     end
-    count
+      count
   end
 
   def to_string
@@ -34,7 +34,7 @@ class LinkedList
       concat_data += " #{current_node.data}" 
       current_node = current_node.next_node
     end
-    concat_data.strip
+      concat_data.strip
   end
 
   def prepend(data)
@@ -72,7 +72,7 @@ class LinkedList
       sound_bites = current_node.next_node.data
       counter += 1
     end
-    sound_bites_arr.join(" ")
+      sound_bites_arr.join(" ")
   end
   
   def include?(sound_bite)
