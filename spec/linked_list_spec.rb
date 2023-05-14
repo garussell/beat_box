@@ -120,4 +120,20 @@ describe "#includes?" do
     expect(list.include?("dep")).to be false
   end
 end
+
+describe "#pop" do
+  it 'can remove last item on the list' do
+    list = LinkedList.new
+
+    list.append("shi")
+    list.append("shu")
+    list.prepend("deep")
+    list.insert(1, "woo")
+    list.append("blop")
+
+    expect(list.pop).to eq("blop")
+    expect(list.pop).to eq("shu")
+    expect(list.to_string).to eq("deep woo shi")
+  end
+end
 end #final
