@@ -36,12 +36,14 @@ RSpec.describe BeatBox do
   end
 
   describe "#all" do
-    it 'can reject invalide words' do
-      
-      @bb.append("deep")
+    it 'can reject invalid words' do
+      @bb = BeatBox.new("deep")  
+    
       @bb.append("Mississippi")
-
       expect(@bb.all).to eq("deep")
+      
+      @bb.prepend("tee tee tee")
+      expect(@bb.all).to eq("tee tee tee deep")
     end
   end
 end
