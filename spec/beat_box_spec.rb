@@ -28,10 +28,20 @@ RSpec.describe BeatBox do
 
   describe "#play" do
     it 'can say words' do
-
+      
       @bb.append("woo hoo shu")
       
       expect(@bb.play).to eq(`say -r 500 -v Zarvox "woo hoo shu"`)
+    end
+  end
+
+  describe "#all" do
+    it 'can reject invalide words' do
+      bb = BeatBox.new("deep")
+
+      bb.append("Mississippi")
+
+      expect(bb.all).to eq("deep")
     end
   end
 end
