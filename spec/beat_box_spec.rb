@@ -18,10 +18,10 @@ RSpec.describe BeatBox do
   describe "#append" do
     it 'can add a list of items' do
 
-      expect(@bb.append("deep doo ditt")).to eq("deep doo ditt")
-      
+      @bb.append("deep doo ditt")
+      expect(@bb.count).to eq(3)
+    
       @bb.append("woo hoo shu")
-
       expect(@bb.count).to eq(6)
     end
   end
@@ -30,18 +30,17 @@ RSpec.describe BeatBox do
     it 'can say words' do
       
       @bb.append("woo hoo shu")
-      
       expect(@bb.play).to eq(`say -r 500 -v Zarvox "woo hoo shu"`)
     end
   end
 
   describe "#all" do
     it 'can reject invalid words' do
-      @bb = BeatBox.new("deep")  
-    
+      @bb.append("deep")
       @bb.append("Mississippi")
-      expect(@bb.all).to eq("deep")
       
+      expect(@bb.all).to eq("deep")
+  
       @bb.prepend("tee tee tee")
       expect(@bb.all).to eq("tee tee tee deep")
     end
