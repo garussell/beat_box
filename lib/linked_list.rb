@@ -6,11 +6,11 @@ class LinkedList
   end
 
   def append(data)
-    if @head == nil
+    if @head.nil?
       @head = Node.new(data)
     else
       current_node = @head
-      current_node = current_node.next_node until current_node.next_node == nil
+      current_node = current_node.next_node until current_node.next_node.nil?
       current_node.next_node = Node.new(data)
     end
   end
@@ -19,7 +19,7 @@ class LinkedList
     count = 0
     current_node = @head
     
-    until current_node == nil
+    until current_node.nil?
       count += 1
       current_node = current_node.next_node
     end
@@ -30,7 +30,7 @@ class LinkedList
     concat_data = ""
     current_node = @head
     
-    until current_node == nil
+    until current_node.nil?
       concat_data += " #{current_node.data}" 
       current_node = current_node.next_node
     end
@@ -38,7 +38,7 @@ class LinkedList
   end
 
   def prepend(data)
-    if @head == nil
+    if @head.nil?
       @head = Node.new(data)
     else
       current_node = Node.new(data)
@@ -66,7 +66,7 @@ class LinkedList
     sound_bites_arr = []
     counter = 0
     
-    until counter == list_length || current_node.next_node == nil 
+    until counter == list_length || current_node.next_node.nil? 
       sound_bites_arr << sound_bites
       current_node = current_node.next_node
       sound_bites = current_node.next_node.data
@@ -84,7 +84,7 @@ class LinkedList
   def pop
     current_node = @head
       
-    until current_node.next_node.next_node == nil
+    until current_node.next_node.next_node.nil?
       current_node = current_node.next_node
     end
       popped_data = current_node.next_node.data

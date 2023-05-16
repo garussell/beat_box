@@ -12,6 +12,7 @@ RSpec.describe BeatBox do
 
       expect(@bb).to be_an_instance_of(BeatBox)
       expect(@bb.list).to be_an_instance_of(LinkedList)
+      expect(@bb.list.head).to eq(nil)
     end
   end
 
@@ -20,6 +21,8 @@ RSpec.describe BeatBox do
 
       @bb.append("deep doo ditt")
       expect(@bb.count).to eq(3)
+      expect(@bb.list.head.data).to eq("deep")
+      expect(@bb.list.head.next_node.data).to eq("doo")
     
       @bb.append("woo hoo shu")
       expect(@bb.count).to eq(6)
@@ -29,8 +32,9 @@ RSpec.describe BeatBox do
   describe "#play" do
     it 'can say words' do
       
-      @bb.append("woo hoo shu")
-      expect(@bb.play).to eq(`say -r 500 -v Zarvox "woo hoo shu"`)
+      @bb.append("deep doo ditt woo hoo shu")
+      expect(@bb.play).to eq(`say -r 500 -v Zarvox "deep doo ditt woo hoo shu"`)
+      expect(@bb.count).to eq(6)
     end
   end
 
