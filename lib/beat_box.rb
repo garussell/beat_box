@@ -1,21 +1,42 @@
 class BeatBox
   attr_reader :list
+  attr_accessor :rate, :voice
 
-  def initialize
-    @list = LinkedList.new
+  def initialize(list = LinkedList.new)
+    @list = list
+    @rate = 500
+    @voice = "Boing"
   end
 
-  def append(data_string)
-    sound_bites_arr = data_string.split(" ")
+  def append(data)
+    sound_bites_arr = data.split(" ")
     sound_bites_arr.each { |sound| @list.append(sound) }
-    sound_bites_arr.join(" ")
+  end
+
+  def prepend(data)
+    sound_bites_arr = data.split(" ")
+    sound_bites_arr.each { |sound| @list.prepend(sound) }
   end
 
   def count
     @list.count
   end
 
-  def play(voice = "Samantha", speed = "225", beats = "Ki ta ta ke ta ka ju no ta ka di me ta ... ka ... di ... meh ... ta ka di ... meh ... ta ka di ... meh ta ka di me te ta ka di me te ta ka di me te Ki")
-    `say -r #{speed} -v #{voice} #{beats}`
+  def play
+    `say -r #{@rate} -v #{@voice} #{@list.to_string}`
+  end
+
+  def all
+    sound_bites = @list.to_string.split
+    sound_bites.reject! { |word| word.length > 4 }
+    sound_bites.join(" ")
+  end
+
+  def reset_rate
+    @rate = 500
+  end
+
+  def reset_voice
+    @voice = "Boing"
   end
 end
