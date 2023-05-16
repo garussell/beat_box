@@ -70,5 +70,15 @@ RSpec.describe BeatBox do
     end
   end
 
-  
+  describe "#reset_rate" do
+    it 'can reset back to default rate' do
+      @bb.append("beep bop boop boop beep")
+
+      @bb.rate = 100
+      expect(@bb.rate).to eq(100)
+      
+      @bb.reset_rate
+      expect(@bb.rate).to eq(500)
+    end
+  end
 end
