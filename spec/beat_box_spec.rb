@@ -45,4 +45,12 @@ RSpec.describe BeatBox do
       expect(@bb.all).to eq("tee tee tee deep")
     end
   end
+
+  describe "#rate" do
+    it 'can change its rate of speech' do
+      @bb.append("deep dop dop deep")
+
+      expect(@bb.play).to eq(` say -r 500 -v Boing "deep dop dop deep" `)
+    end
+  end
 end
