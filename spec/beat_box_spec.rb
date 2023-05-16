@@ -63,7 +63,6 @@ RSpec.describe BeatBox do
       @bb.append("beep bop boop boop beep")
 
       expect(@bb.play).to eq(` say -r #{@rate} -v #{@voice} "beep bop boop boop beep" `)
-
       @bb.voice = "Daniel"
 
       expect(@bb.voice).to eq("Daniel")
@@ -72,13 +71,30 @@ RSpec.describe BeatBox do
 
   describe "#reset_rate" do
     it 'can reset back to default rate' do
-      @bb.append("beep bop boop boop beep")
+      @bb.append("sum uh lum a doom a lum uh")
 
       @bb.rate = 100
       expect(@bb.rate).to eq(100)
+      expect(@bb.play).to eq(` say -r 100 -v "Boing" "sum uh lum a doom a lum uh" `)
       
       @bb.reset_rate
       expect(@bb.rate).to eq(500)
+      expect(@bb.play).to eq(` say -r 500 -v "Boing" "sum uh lum a doom a lum uh" `)
+    end
+  end
+
+  describe "#reset_voice" do
+    it 'can reset back to default voice' do
+      @bb.append("sum uh lum a dum a lum uh")
+      @bb.rate = 250
+
+      @bb.voice = "Daniel"
+      expect(@bb.voice).to eq("Daniel")
+      expect(@bb.play).to eq(` say -r 250 -v #{@bb.voice} "sum uh lum a doom a lum uh" `)
+
+      @bb.reset_voice
+      expect(@bb.voice).to eq("Boing")
+      expect(@bb.play).to eq(` say -r 250 -v #{@bb.voice} "sum uh lum a doom a lum uh" `)
     end
   end
 end
