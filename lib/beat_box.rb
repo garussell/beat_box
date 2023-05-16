@@ -33,4 +33,8 @@ class BeatBox
     sound_bites.reject! { |word| word.length > 4 }
     sound_bites.join(" ")
   end
+
+  def reset_rate
+    @rate = 500
+  end
 end
