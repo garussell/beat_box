@@ -1,8 +1,11 @@
 class BeatBox
-  attr_reader :list, :syllable_counter
+  attr_reader :list
+  attr_accessor :rate, :voice
 
   def initialize(list = LinkedList.new)
     @list = list
+    @rate = 500
+    @voice = "Boing"
   end
 
   def append(data)
@@ -21,8 +24,8 @@ class BeatBox
     @list.count
   end
 
-  def play(voice = "Samantha", rate = "225", beats = "doop da doop de doop")
-    `say -r #{rate} -v #{voice} #{beats}`
+  def play
+    `say -r #{@rate} -v #{@voice} #{@list.to_string}`
   end
 
   def all
@@ -30,6 +33,4 @@ class BeatBox
     sound_bites.reject! { |word| word.length > 4 }
     sound_bites.join(" ")
   end
-
 end
-
