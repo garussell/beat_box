@@ -11,13 +11,11 @@ class BeatBox
   def append(data)
     sound_bites_arr = data.split(" ")
     sound_bites_arr.each { |sound| @list.append(sound) }
-    sound_bites_arr.join(" ")
   end
 
   def prepend(data)
     sound_bites_arr = data.split(" ")
     sound_bites_arr.each { |sound| @list.prepend(sound) }
-    sound_bites_arr.join(" ")
   end
 
   def count
